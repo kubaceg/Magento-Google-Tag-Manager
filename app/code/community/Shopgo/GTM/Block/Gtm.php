@@ -79,7 +79,7 @@ class Shopgo_GTM_Block_Gtm extends Mage_Core_Block_Template
 					'transactionTax' => round($order->getBaseTaxAmount(),2),
 					'transactionPaymentType' => $order->getPayment()->getMethodInstance()->getTitle(),
 					'transactionCurrency' => Mage::app()->getStore()->getBaseCurrencyCode(),
-					'transactionShippingMethod' => $order->getShippingCarrier() ? $order->getShippingCarrier()->getCarrierCode() : 'No Shipping Method',
+					'transactionShippingMethod' => $order->getIsNotVirtual() ? $order->getShippingCarrier()->getCarrierCode() : 'No Shipping Method',
 					'transactionPromoCode' => $order->getCouponCode(),
 					'transactionProducts' => array()
 				);
